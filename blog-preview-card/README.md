@@ -28,8 +28,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [https://github.com/ShrutiShinde418/FrontendMentor6/tree/main/blog-preview-card](https://github.com/ShrutiShinde418/FrontendMentor6/tree/main/blog-preview-card)
+- Live Site URL: [https://blog-preview-card-pied.vercel.app/](https://blog-preview-card-pied.vercel.app/)
 
 ## My process
 
