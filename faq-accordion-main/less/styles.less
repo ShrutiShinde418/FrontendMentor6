@@ -1,9 +1,10 @@
-// @import url("https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
 @white: hsl(0, 0%, 100%);
 @light-pink: hsl(275, 100%, 97%);
 @grayish-purple: hsl(293, 16%, 49%);
 @purple: hsl(281, 83%, 54%);
 @dark-purple: hsl(292, 42%, 14%);
+@max576: ~"(max-width:576px)";
+@max1024: ~"(max-width:1024px)";
 
 @font-face {
   font-family: "Work Sans";
@@ -21,6 +22,14 @@ body {
   background: url("../assets/images/background-pattern-desktop.svg") @light-pink
     no-repeat;
   background-size: contain;
+  @media @max576 {
+    margin: 1.5em;
+  }
+  @media @max1024 {
+    background: url("../assets/images/background-pattern-mobile.svg")
+      @light-pink no-repeat;
+    background-size: contain;
+  }
 }
 
 h1,
@@ -32,11 +41,11 @@ h5 {
 }
 
 .card {
-  // max-width: 480px;
-  width: 35%;
+  max-width: 480px;
+  width: 68vh;
   background-color: @white;
   padding: 2em;
-  border-radius: 1rem;
+  border-radius: 0.75rem;
   .card__header {
     display: flex;
     gap: 1.5em;
@@ -56,20 +65,13 @@ h5 {
       justify-content: space-between;
       align-items: center;
       gap: 2em;
-      // margin-bottom: 1em;
       .button-group {
         display: flex;
         .close {
           display: none;
         }
-        .close.active {
-          display: block;
-        }
         .open {
           display: block;
-        }
-        .open.active {
-          display: none;
         }
       }
       .accordion__title {
@@ -93,10 +95,6 @@ h5 {
       grid-template-rows: 0fr;
       transition: grid-template-rows 0.3s ease-out;
     }
-    .accordion__body.active {
-      grid-template-rows: 1fr;
-      margin-top: 0.75em;
-    }
     .accordion__text {
       font-size: 1rem;
       color: @grayish-purple;
@@ -105,8 +103,40 @@ h5 {
       overflow: hidden;
     }
   }
+  article.active {
+    .accordion__body {
+      grid-template-rows: 1fr;
+      margin-top: 0.75em;
+    }
+    .accordion__header {
+      .button-group {
+        .open {
+          display: none;
+        }
+        .close {
+          display: block;
+        }
+      }
+    }
+  }
   article:last-of-type {
     border-bottom: none;
     padding: 1.5em 0 0 0;
+  }
+  @media @max576 {
+    .card__header {
+      h1 {
+        font-size: 2.25rem;
+      }
+      img {
+        width: 12%;
+      }
+      margin-bottom: 1em;
+    }
+    article.active {
+      .accordion__body {
+        margin-top: 1.25em;
+      }
+    }
   }
 }
